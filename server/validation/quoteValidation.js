@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine';
 
 export const quoteSchema = vine.object({
-  title: vine.string().minLength(4).trim(),
+  text: vine.string().minLength(10).trim(),
   authorName: vine.string().minLength(4).trim(),
 });

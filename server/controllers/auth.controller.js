@@ -14,9 +14,10 @@ export const RegisterController = async (req, res) => {
     vine.errorReporter = () => new CustomErrorReporter();
     const validator = vine.compile(registerSchema);
     const payload = await validator.validate(req.body);
-    const emailCount = await User.countDocuments({ email: email });
-
-    if (emailCount > 0) {
+    const isEmailExist = await User.findOne({
+      email: payload.email,
+    });
+    if (isEmailExist) {
       return res.status(409).json({ message: 'Email already exists' });
     }
     const saltRounds = 10;
@@ -51,7 +52,7 @@ export const LoginController = async (req, res) => {
     vine.errorReporter = () => new CustomErrorReporter();
     const validator = vine.compile(loginSchema);
     const payload = await validator.validate(req.body);
-    const isEmailExist = await User.findUnique({
+    const isEmailExist = await User.findOne({
       email: payload.email,
     });
     if (!isEmailExist) {

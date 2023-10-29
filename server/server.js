@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import connection from './db/conn.js';
 import dotenv from 'dotenv';
+import quoteRoute from './routes/quote.route.js';
 import authRoute from './routes/auth.route.js';
 
 // Loading environment variables from the config file
@@ -25,6 +26,7 @@ app.use(cors());
 
 // Enabling Cross-Origin Resource Sharing (CORS)
 app.use('/api/auth', authRoute);
+app.use('/api/quote', quoteRoute);
 
 // Testing route to check if the server is working
 app.get('/', (req, res) => {
