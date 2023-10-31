@@ -1,5 +1,6 @@
 # QuoteGenerator
-
+## Overview
+This dynamic web application is designed to captivate and inspire users with a curated collection of quotes. It provides a user-friendly interface for viewing, adding, updating, and deleting quotes. The application can be built using either the MERN (MongoDB, Express.js, React, Node.js) ensuring a seamless and interactive experience for users.
 ## Table of Contents
 
 - [Description](#description)
