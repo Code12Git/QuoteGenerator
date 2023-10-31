@@ -1,4 +1,7 @@
 # QuoteGenerator
+
+![Screenshot from 2023-10-14 16-59-49](https://github.com/Code12Git/QuoteGenerator/assets/108590542/ac039e63-b54c-4963-9659-29ae12188bb9)
+
 ## Overview
 This dynamic web application is designed to captivate and inspire users with a curated collection of quotes. It provides a user-friendly interface for viewing, adding, updating, and deleting quotes. The application can be built using either the MERN (MongoDB, Express.js, React, Node.js) ensuring a seamless and interactive experience for users.
 ## Table of Contents
