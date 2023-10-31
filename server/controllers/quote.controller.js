@@ -7,20 +7,22 @@ import vine from '@vinejs/vine';
 //Creating a quote
 export const createQuote = async (req, res) => {
   try {
-    vine.errorReporter = () => new CustomErrorReporter();
     const validator = vine.compile(quoteSchema);
     const payload = await validator.validate(req.body);
+
     const quote = await Quote.create({
       text: payload.text,
       authorName: payload.authorName,
     });
-    res.status(200).json(quote, { success: true });
+
+    res.status(200).json({ success: true, quote });
   } catch (error) {
     if (error instanceof errors.E_VALIDATION_ERROR) {
-      return res.status(400).json({ errors: error.messages });
+      res.status(400).json({ success: false, errors: error.messages });
     } else {
       console.error(error);
-      return res
+
+      res
         .status(500)
         .json({ success: false, message: 'Internal Server Error' });
     }
